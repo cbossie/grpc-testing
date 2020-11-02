@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProtoBuf.Grpc.Server;
 
 namespace GrpcService
 {
@@ -17,6 +18,9 @@ namespace GrpcService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGrpc();
+            services.AddCodeFirstGrpc();
+            services.AddCodeFirstGrpcReflection();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -26,6 +30,7 @@ namespace GrpcService
             {
                 app.UseDeveloperExceptionPage();
             }
+            
 
             app.UseRouting();
 
